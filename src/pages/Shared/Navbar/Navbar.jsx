@@ -19,7 +19,7 @@ const Navbar = () => {
         </Link>
 
         {/* Nav items section */}
-        <ul className="hidden lg:flex space-x-5">
+        <ul className="hidden lg:flex space-x-5 text-[18px]">
           <li>
             <ActiveLink to="/">Home</ActiveLink>
           </li>
