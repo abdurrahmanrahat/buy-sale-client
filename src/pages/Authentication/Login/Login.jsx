@@ -56,7 +56,7 @@ const Login = () => {
           </div>
           <div className="mx-8">
             <input
-              className="bg-[#000000] w-full rounded-md py-3 text-white"
+              className="bg-[#000000] w-full rounded-md py-3 text-white cursor-pointer"
               type="submit"
               value="Login"
             />

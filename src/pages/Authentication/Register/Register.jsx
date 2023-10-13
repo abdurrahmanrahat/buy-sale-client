@@ -1,10 +1,123 @@
+import { useForm } from "react-hook-form";
+import usePasswordToggle from "../../../hooks/usePasswordToggle";
+import { Link } from "react-router-dom";
+import GoogleSignIn from "../../../components/GoogleSignIn/GoogleSignIn";
+import toast from "react-hot-toast";
 
 const Register = () => {
-    return (
-        <div>
-            Register Page
+  const [passwordInputType, toggleIcon] = usePasswordToggle();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+  return (
+    <div className="bg-gray-900 min-h-screen px-4 text-white flex items-center justify-center">
+      <div className="w-[400px] rounded-md h-[600px] bg-[#00000052] py-4">
+        <div className="text-center">
+          <h2 className="text-3xl mt-2 mb-1 font-semibold">Register</h2>
+          <p className="text-gray-400">Sign up in our community</p>
         </div>
-    );
+
+        {/* form start */}
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="m-8 space-y-2">
+            <div>
+              <label htmlFor="name" className="block mb-2 text-md">
+                Your Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Enter Your Name"
+                {...register("name", { required: true })}
+                className="w-full px-3 py-3 bg-[#000000a4] rounded-sm focus:outline-none"
+              />
+              {errors.name?.type === true && toast.error("Provide your name")}
+            </div>
+
+            {/* Photo Field */}
+            <div>
+              <label className="block mb-2 text-md">
+                <span className="">Your Photo</span>
+              </label>
+              <input
+                type="file"
+                {...register("photo", { required: true })}
+                className="file-input w-full bg-[#000000a4]"
+              />
+              {errors.photo?.type === "required" &&
+                toast.error("Add your photo")}
+            </div>
+            <div>
+              <label htmlFor="email" className="block mb-2 text-md">
+                Email address
+              </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Enter Your Email"
+                {...register("email", { required: true })}
+                className="w-full px-3 py-3 bg-[#000000a4] rounded-sm focus:outline-none"
+              />
+              {errors.email?.type === "required" &&
+                toast.error("Provide your email")}
+            </div>
+            <div className="relative">
+              <label htmlFor="email" className="block mb-2 text-md">
+                Password
+              </label>
+              <input
+                type={passwordInputType}
+                name="password"
+                id="password"
+                placeholder="*******"
+                {...register("password", {
+                  required: true,
+                  minLength: 6,
+                  pattern: /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[#?!@$%^&*-])/,
+                })}
+                className="w-full px-3 py-3 bg-[#000000a4] rounded-sm focus:outline-none"
+              />
+              {errors.password?.type === "required" &&
+                toast.error("Provide your password")}
+              {errors.password?.type === "minLength" &&
+                toast.error("Password must be 6 characters")}
+              {errors.password?.type === "pattern" &&
+                toast.error(
+                  "Password must have one uppercase, lowercase & symbol"
+                )}
+              <span className="absolute top-12 right-4 z-10 cursor-pointer">
+                {toggleIcon}
+              </span>
+            </div>
+          </div>
+          <div className="mx-8">
+            <input
+              className="bg-[#000000] w-full rounded-md py-3 cursor-pointer text-white"
+              type="submit"
+              value="Register"
+            />
+          </div>
+        </form>
+
+        <p className="px-6 mt-2 text-sm text-center text-gray-400">
+          Already have an account?{" "}
+          <Link
+            to="/login"
+            className="hover:underline hover:text-[15px] duration-300 hover:text-[#EE9322] text-gray-600"
+          >
+            Login
+          </Link>
+        </p>
+      </div>
+    </div>
+  );
 };
 
 export default Register;
