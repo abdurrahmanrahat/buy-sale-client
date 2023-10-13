@@ -63,7 +63,7 @@ const IntroSection = () => {
           </div>
           <div>
             <div>
-              <FaStarHalfAlt className="text-sky-500 text-3xl "></FaStarHalfAlt>
+              <FaStarHalfAlt className="text-[#9875ff] text-3xl "></FaStarHalfAlt>
             </div>
 
             <h1 className="text-2xl font-bold ">Review a Product</h1>
