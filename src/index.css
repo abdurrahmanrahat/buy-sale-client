@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+/* body {
     color: white
-}
+} */
 
 /* for swiper slider style */
 
@@ -52,4 +52,18 @@ body{
     100% {
         top: 50%;
     }
+}
+
+/* toggle mood style */
+.theme {
+    transition: 1.5s all ease;
+}
+
+.light {
+    background-color: white;
+    color: #111;
+}
+
+.dark {
+    @apply bg-gray-950 text-white
 }

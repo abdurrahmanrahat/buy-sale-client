@@ -33,7 +33,7 @@ const Login = () => {
       });
   };
   return (
-    <div className="bg-gray-900 min-h-screen px-4 text-white flex items-center justify-center">
+    <div className="min-h-screen px-4 bg-gray-900 text-white flex items-center justify-center">
       <div className="w-[400px] rounded-md h-[500px] bg-[#00000052] py-4">
         <div className="text-center">
           <h2 className="text-3xl mt-2 mb-1 font-semibold">Login</h2>

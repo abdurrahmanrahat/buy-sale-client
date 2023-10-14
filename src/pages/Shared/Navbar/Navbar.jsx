@@ -5,6 +5,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import { AuthContext } from "../../../provider/AuthProvider";
 import toast from "react-hot-toast";
+import DarkMoodToggle from "../../../components/DarkMoodToggle/DarkMoodToggle";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -95,7 +96,10 @@ const Navbar = () => {
         {/* Mobile Navlinks end */}
 
         {/* button working */}
-        <div>
+        <div className="md:flex items-center gap-4">
+          <div className="hidden md:block">
+            <DarkMoodToggle></DarkMoodToggle>
+          </div>
           {user ? (
             <button
               onClick={handleLogout}
