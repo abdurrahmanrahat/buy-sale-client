@@ -4,30 +4,32 @@ import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Authentication/Login/Login";
 import Register from "../pages/Authentication/Register/Register";
 import AddProduct from "../pages/AddProduct/AddProduct";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
       },
       {
         path: "/addProduct",
-        element: <AddProduct></AddProduct>
-      }
-    ]
+        element: <AddProduct></AddProduct>,
+      },
+    ],
   },
   {
     path: "login",
-    element: <Login></Login>
+    element: <Login></Login>,
   },
   {
     path: "register",
-    element: <Register></Register>
-  }
+    element: <Register></Register>,
+  },
 ]);
 
 export default router;
