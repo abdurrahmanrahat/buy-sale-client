@@ -53,7 +53,7 @@ const Register = () => {
               // profile updating...
               updateUserProfile(name, photo)
                 .then(() => {
-                  // TODO: send user data to db from here 
+                  // TODO: send user data to db from here
 
                   toast.success("User register successfully");
                   navigate("/");

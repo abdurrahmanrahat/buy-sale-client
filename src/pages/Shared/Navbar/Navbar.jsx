@@ -1,11 +1,23 @@
 import { Link } from "react-router-dom";
 import ActiveLink from "./ActiveLink";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
+import { AuthContext } from "../../../provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+
+  // user logout
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        toast.success("User logout successfully");
+      })
+      .catch((err) => toast.error(err.message));
+  };
 
   return (
     <div className="bg-gray-900 text-white px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen md:px-24 lg:px-8">
@@ -75,6 +87,24 @@ const Navbar = () => {
           )}
         </div>
         {/* Mobile Navlinks end */}
+
+        {/* button working */}
+        <div>
+          {user ? (
+            <button
+              onClick={handleLogout}
+              className="text-[18px] font-semibold bg-[#EE9322] px-4 py-2 rounded"
+            >
+              Logout
+            </button>
+          ) : (
+            <Link to="/login">
+              <button className="text-[18px] font-semibold bg-[#EE9322] px-4 py-2 rounded">
+                Login
+              </button>
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   );
