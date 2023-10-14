@@ -1,17 +1,36 @@
 import { useForm } from "react-hook-form";
 import usePasswordToggle from "../../../hooks/usePasswordToggle";
 import GoogleSignIn from "../../../components/GoogleSignIn/GoogleSignIn";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../../provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
   const [passwordInputType, toggleIcon] = usePasswordToggle();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+
+  // for redirect purpose
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
+  // react hook form
+  const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    const email = data.email;
+    const password = data.password;
+
+    // sign in user
+    signIn(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        toast.success("User login successfully");
+        navigate(from, { replace: true });
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
   };
   return (
     <div className="bg-gray-900 min-h-screen px-4 text-white flex items-center justify-center">

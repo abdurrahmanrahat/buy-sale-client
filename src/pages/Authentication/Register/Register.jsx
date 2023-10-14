@@ -26,11 +26,9 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
     const name = data.name;
     const email = data.email;
     const password = data.password;
-    console.log(name, email, password);
 
     const formData = new FormData();
     formData.append("image", data.photo[0]);
@@ -39,7 +37,6 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
 
         // host image in imgbb
         fetch(img_hosting_url, {
