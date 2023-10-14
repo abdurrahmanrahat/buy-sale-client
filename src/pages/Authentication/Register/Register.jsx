@@ -1,11 +1,25 @@
 import { useForm } from "react-hook-form";
 import usePasswordToggle from "../../../hooks/usePasswordToggle";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GoogleSignIn from "../../../components/GoogleSignIn/GoogleSignIn";
 import toast from "react-hot-toast";
+import { useContext } from "react";
+import { AuthContext } from "../../../provider/AuthProvider";
+
+// token for image hosting
+const image_hoisting_token = import.meta.env.VITE_image_uplode_token;
 
 const Register = () => {
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  // for password toggle from a hook
   const [passwordInputType, toggleIcon] = usePasswordToggle();
+
+  const navigate = useNavigate();
+
+  // image hosting url
+  const img_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hoisting_token}`;
+
+  // react hook form
   const {
     register,
     handleSubmit,
@@ -13,7 +27,46 @@ const Register = () => {
   } = useForm();
   const onSubmit = (data) => {
     console.log(data);
+    const name = data.name;
+    const email = data.email;
+    const password = data.password;
+    console.log(name, email, password);
+
+    const formData = new FormData();
+    formData.append("image", data.photo[0]);
+
+    // user creating...
+    createUser(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+
+        // host image in imgbb
+        fetch(img_hosting_url, {
+          method: "POST",
+          body: formData,
+        })
+          .then((res) => res.json())
+          .then((imgRes) => {
+            if (imgRes.success) {
+              const photo = imgRes.data.display_url;
+              // profile updating...
+              updateUserProfile(name, photo)
+                .then(() => {
+                  // TODO: send user data to db from here 
+
+                  toast.success("User register successfully");
+                  navigate("/");
+                })
+                .catch((err) => toast.error(err.message));
+            }
+          });
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
   };
+
   return (
     <div className="bg-gray-900 min-h-screen px-4 text-white flex items-center justify-center">
       <div className="w-[400px] rounded-md h-[600px] bg-[#00000052] py-4">
