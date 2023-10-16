@@ -7,5 +7,13 @@
  * Using Packages lists
  * Swiperjs 
  * react text modifier
+ * LottieFiles
+ * 
+*/
+
+/**
+ * SELLER INFO
+ * 
+ * mathewarnold@gmail.com || Mathew47&
  * 
 */

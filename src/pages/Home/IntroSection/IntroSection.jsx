@@ -20,7 +20,48 @@ const IntroSection = () => {
       </div>
 
       {/* content */}
-      <div className="space-y-5">
+      <div className="space-y-5 p-8 md:p-0">
+        <p className="text-sm  text-yellow-300 font-bold ">
+          Purpose of Community
+        </p>
+
+        <h1 className="text-3xl font-bold">
+          The best E-commerce Platform for All
+        </h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas omnis
+          rerum rem, assumenda quae ab a quidem neque quibusdam numquam?
+        </p>
+
+        <div className="">
+          <div className="md:flex gap-5 items-center">
+            <div>
+              <FaRocketchat className="text-pink-500 text-3xl"></FaRocketchat>
+            </div>
+
+            <div>
+              <h1 className="text-2xl font-bold ">Chat With Seller</h1>
+              <p>
+                Before confirming to buy product, you can discuss with seller
+              </p>
+            </div>
+          </div>
+
+          <div className="md:flex gap-5 items-center mt-4">
+            <div>
+              <FaStarHalfAlt className="text-[#9875ff] text-3xl "></FaStarHalfAlt>
+            </div>
+
+            <div>
+              <h1 className="text-2xl font-bold ">Review a Product</h1>
+              <p>
+                There also contain an opportunity to review your buying products
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <div className="space-y-5">
         <p className="text-sm  text-yellow-300 font-bold ">
           Purpose of Community
         </p>
@@ -72,7 +113,7 @@ const IntroSection = () => {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
