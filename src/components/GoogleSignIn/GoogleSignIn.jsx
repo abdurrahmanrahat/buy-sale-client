@@ -17,10 +17,28 @@ const GoogleSignIn = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
-
         // send to db and role as default buyer
-        toast.success("User login successfully");
-        navigate(from, { replace: true });
+        const savedUser = {
+          name: loggedUser.displayName,
+          email: loggedUser.email,
+          photo: loggedUser.photoURL,
+          role: "buyer",
+        };
+
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(savedUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              toast.success("User login successfully");
+              navigate(from, { replace: true });
+            }
+          });
       })
       .catch((err) => {
         toast.error(err.message);
