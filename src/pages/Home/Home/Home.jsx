@@ -1,4 +1,5 @@
 import BannerSection from "../BannerSection/BannerSection";
+import GallerySection from "../GallerySection/GallerySection";
 import IntroSection from "../IntroSection/IntroSection";
 import TopProducts from "../TopProducts/TopProducts";
 
@@ -10,6 +11,8 @@ const Home = () => {
       <IntroSection></IntroSection>
 
       <TopProducts></TopProducts>
+
+      <GallerySection></GallerySection>
     </div>
   );
 };
