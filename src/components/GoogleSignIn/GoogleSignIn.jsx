@@ -16,6 +16,9 @@ const GoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
         const loggedUser = result.user;
+        console.log(loggedUser);
+
+        // send to db and role as default buyer
         toast.success("User login successfully");
         navigate(from, { replace: true });
       })
@@ -23,7 +26,7 @@ const GoogleSignIn = () => {
         toast.error(err.message);
       });
   };
-  
+
   return (
     <div
       onClick={handleGoogleSinIn}

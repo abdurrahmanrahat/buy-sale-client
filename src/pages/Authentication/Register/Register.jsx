@@ -52,9 +52,27 @@ const Register = () => {
               updateUserProfile(name, photo)
                 .then(() => {
                   // TODO: send user data to db from here
+                  const savedUser = {
+                    name: data.name,
+                    email: data.email,
+                    photo,
+                    role: data.role,
+                  };
 
-                  toast.success("User register successfully");
-                  navigate("/");
+                  fetch("http://localhost:5000/users", {
+                    method: "POST",
+                    headers: {
+                      "content-type": "application/json",
+                    },
+                    body: JSON.stringify(savedUser),
+                  })
+                    .then((res) => res.json())
+                    .then((data) => {
+                      if (data.insertedId) {
+                        toast.success("User register successfully");
+                        navigate("/");
+                      }
+                    });
                 })
                 .catch((err) => toast.error(err.message));
             }
