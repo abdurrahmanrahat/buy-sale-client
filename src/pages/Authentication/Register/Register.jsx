@@ -29,6 +29,7 @@ const Register = () => {
     const name = data.name;
     const email = data.email;
     const password = data.password;
+    console.log(data);
 
     const formData = new FormData();
     formData.append("image", data.photo[0]);
@@ -65,8 +66,8 @@ const Register = () => {
   };
 
   return (
-    <div className="bg-gray-900 min-h-screen px-4 text-white flex items-center justify-center">
-      <div className="w-[400px] rounded-md h-[600px] bg-[#00000052] py-4">
+    <div className="bg-gray-900  px-4 text-white flex items-center justify-center">
+      <div className="w-[400px] rounded-md  bg-[#00000052] py-4 my-6">
         <div className="text-center">
           <h2 className="text-3xl mt-2 mb-1 font-semibold">Register</h2>
           <p className="text-gray-400">Sign up in our community</p>
@@ -145,6 +146,25 @@ const Register = () => {
               <span className="absolute top-12 right-4 z-10 cursor-pointer">
                 {toggleIcon}
               </span>
+            </div>
+
+            {/* role field */}
+            <div className="form-control">
+              <label htmlFor="role" className="block mb-2 text-md">
+                Register as
+              </label>
+              <select
+                className="w-full px-3 py-3 bg-[#000000a4] rounded-sm focus:outline-none"
+                {...register("role", { required: true })}
+              >
+                {/* <option disabled selected>
+                Pick one
+              </option> */}
+                <option>seller</option>
+                <option>buyer</option>
+              </select>
+              {errors.role?.type === "required" &&
+                toast.error("Select your role")}
             </div>
           </div>
           <div className="mx-8">
