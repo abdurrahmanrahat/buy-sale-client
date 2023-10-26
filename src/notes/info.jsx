@@ -8,6 +8,7 @@
  * Swiperjs 
  * react text modifier
  * LottieFiles
+ * react ratting
  * 
 */
 

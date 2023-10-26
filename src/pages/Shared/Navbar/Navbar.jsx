@@ -42,9 +42,11 @@ const Navbar = () => {
           <li>
             <ActiveLink to="/products">Products</ActiveLink>
           </li>
-          <li>
-            <ActiveLink to="/addProduct">Add Product</ActiveLink>
-          </li>
+          {user && (
+            <li>
+              <ActiveLink to="/addProduct">Add Product</ActiveLink>
+            </li>
+          )}
         </ul>
 
         {/* Mobile menu */}

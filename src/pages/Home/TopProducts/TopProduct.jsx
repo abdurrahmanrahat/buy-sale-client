@@ -15,7 +15,7 @@ const TopProduct = ({ product }) => {
     productRelease,
   } = product;
   return (
-    <div className="bg-gray-900 text-white rounded-lg overflow-hidden shadow-lg p-4">
+    <div className="bg-gray-900 text-white rounded-lg overflow-hidden shadow-lg p-4 mx-8 md:mx-0">
       <div className="relative">
         <img
           src={productImg}
