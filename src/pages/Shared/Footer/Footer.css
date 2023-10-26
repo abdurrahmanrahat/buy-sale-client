@@ -1,0 +1,9 @@
+.list li {
+    margin-bottom: 2px;
+}
+
+.footer-div {
+    background-image: url("../../../assets/footer.png");
+    background-position: bottom;
+    background-size: cover;
+}
