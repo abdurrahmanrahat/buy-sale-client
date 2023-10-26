@@ -13,7 +13,8 @@
  * react text modifier
  * LottieFiles
  * react ratting
- *
+ * react tabs
+ * swiper js
  *
  */
 
