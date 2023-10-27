@@ -22,5 +22,9 @@
  * SELLER INFO
  *
  * mathewarnold@gmail.com || Mathew47&
+ * linthia@islam.com || Linthia47&
+ * williamblack@gmail.com || Black47&
  *
  */
+
+// product image- 240 * 180

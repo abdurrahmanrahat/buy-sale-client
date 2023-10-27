@@ -34,10 +34,8 @@ const GoogleSignIn = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            if (data.insertedId) {
-              toast.success("User login successfully");
-              navigate(from, { replace: true });
-            }
+            toast.success("User login successfully");
+            navigate(from, { replace: true });
           });
       })
       .catch((err) => {

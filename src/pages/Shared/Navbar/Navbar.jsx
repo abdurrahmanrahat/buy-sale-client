@@ -37,10 +37,10 @@ const Navbar = () => {
             <ActiveLink to="/">Home</ActiveLink>
           </li>
           <li>
-            <ActiveLink to="/sellers">Sellers</ActiveLink>
+            <ActiveLink to="/products">Products</ActiveLink>
           </li>
           <li>
-            <ActiveLink to="/products">Products</ActiveLink>
+            <ActiveLink to="/sellers">Sellers</ActiveLink>
           </li>
           {user && (
             <li>
@@ -81,10 +81,10 @@ const Navbar = () => {
                       <ActiveLink to="/">Home</ActiveLink>
                     </li>
                     <li>
-                      <ActiveLink to="/sellers">Sellers</ActiveLink>
+                      <ActiveLink to="/products">Products</ActiveLink>
                     </li>
                     <li>
-                      <ActiveLink to="/products">Products</ActiveLink>
+                      <ActiveLink to="/sellers">Sellers</ActiveLink>
                     </li>
                     <li>
                       <ActiveLink to="/addProduct">Add Product</ActiveLink>
