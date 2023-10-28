@@ -1,9 +1,12 @@
 import { Link, Outlet } from "react-router-dom";
 import ActiveLink from "../pages/Shared/Navbar/ActiveLink";
 import isSellerUser from "../hooks/isSellerUser";
+import isBuyerUser from "../hooks/isBuyerUser";
 
 const Dashboard = () => {
   const [isSeller] = isSellerUser();
+  const [isBuyer] = isBuyerUser();
+
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -43,9 +46,12 @@ const Dashboard = () => {
             </li>
             {isSeller && (
               <li>
-                <ActiveLink to={"/dashboard/addproduct"}>
-                  Seller
-                </ActiveLink>
+                <ActiveLink to={"/dashboard/addproduct"}>Seller</ActiveLink>
+              </li>
+            )}
+            {isBuyer && (
+              <li>
+                <ActiveLink to={"/dashboard/addproduct"}>buyer</ActiveLink>
               </li>
             )}
           </ul>
