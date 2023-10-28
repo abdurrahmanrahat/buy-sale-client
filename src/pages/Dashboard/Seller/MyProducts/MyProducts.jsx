@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Loading from "../../../../components/Loading/Loading";
 import getProductsByEmail from "../../../../hooks/getProductsByEmail";
 
@@ -55,9 +56,11 @@ const MyProducts = () => {
                 <td className="text-lg">{product.productCategory}</td>
                 <td className="text-lg text-right">${product?.productPrice}</td>
                 <td>
-                  <button className="text-[16px] font-semibold bg-[#EE9322] px-2 py-1 rounded">
-                    Update
-                  </button>
+                  <Link to={`/dashboard/updateproduct/${product._id}`}>
+                    <button className="text-[16px] font-semibold bg-[#EE9322] px-2 py-1 rounded">
+                      Update
+                    </button>
+                  </Link>
                 </td>
               </tr>
             ))}
