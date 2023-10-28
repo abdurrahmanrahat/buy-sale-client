@@ -1,5 +1,8 @@
+import { Link } from "react-router-dom";
+
 const Product = ({ product }) => {
   const {
+    _id,
     productName,
     productImg,
     productPrice,
@@ -38,12 +41,11 @@ const Product = ({ product }) => {
       <div className="flex items-center justify-evenly">
         <p>{productRelease}</p>
         <div className="flex items-center">
-          <button
-            // onClick={handleLogout}
-            className="text-[18px] font-semibold bg-[#EE9322] px-4 py-2 rounded"
-          >
-            Details
-          </button>
+          <Link to={`/products/${_id}`}>
+            <button className="text-[18px] font-semibold bg-[#EE9322] px-4 py-2 rounded">
+              Details
+            </button>
+          </Link>
         </div>
       </div>
     </div>
