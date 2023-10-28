@@ -2,10 +2,12 @@ import { Link, Outlet } from "react-router-dom";
 import ActiveLink from "../pages/Shared/Navbar/ActiveLink";
 import isSellerUser from "../hooks/isSellerUser";
 import isBuyerUser from "../hooks/isBuyerUser";
+import isAdminUser from "../hooks/isAdminUser";
 
 const Dashboard = () => {
   const [isSeller] = isSellerUser();
   const [isBuyer] = isBuyerUser();
+  const [isAdmin] = isAdminUser();
 
   return (
     <div className="drawer lg:drawer-open">
@@ -25,35 +27,67 @@ const Dashboard = () => {
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <div className="menu p-4 w-64 min-h-full bg-gray-900">
           {/* Sidebar content here */}
-          <div>
+          <div className="mt-6">
             <Link to="/">
-              <h2 className="text-3xl font-bold">
+              <h2 className="text-[32px] font-bold">
                 <span className="text-[#EE9322]">Product</span>
                 <span className="text-[#9875ff]">Sale</span>
               </h2>
             </Link>
+            <h2 className="text-[16px] font-semibold mt-4 ml-6">
+              {isAdmin && "Admin Dashboard"}
+              {isSeller && "Seller Dashboard"}
+              {isBuyer && "Buyer Dashboard"}
+            </h2>
           </div>
 
           <ul className="text-[18px] my-10 space-y-0">
+            {isAdmin && (
+              <>
+                <li>
+                  <ActiveLink to={"/dashboard/users"}>
+                    Users Management
+                  </ActiveLink>
+                </li>
+                <li>
+                  <ActiveLink to={"/dashboard/products"}>
+                    Products Manage
+                  </ActiveLink>
+                </li>
+              </>
+            )}
+
+            {isSeller && (
+              <>
+                <li>
+                  <ActiveLink to={"/dashboard/myproducts"}>
+                    My Products
+                  </ActiveLink>
+                </li>
+                <li>
+                  <ActiveLink to={"/dashboard/addproduct"}>
+                    Add Product
+                  </ActiveLink>
+                </li>
+              </>
+            )}
+
+            {isBuyer && (
+              <>
+                <li>
+                  <ActiveLink to={"/dashboard/cart"}>My Cart</ActiveLink>
+                </li>
+                <li>
+                  <ActiveLink to={"/dashboard/payment-history"}>
+                    Payment History
+                  </ActiveLink>
+                </li>
+              </>
+            )}
+
             <li>
               <ActiveLink to={"/"}>Home</ActiveLink>
             </li>
-            <li>
-              <ActiveLink to={"/dashboard/myproducts"}>My Products</ActiveLink>
-            </li>
-            <li>
-              <ActiveLink to={"/dashboard/addproduct"}>Add Product</ActiveLink>
-            </li>
-            {isSeller && (
-              <li>
-                <ActiveLink to={"/dashboard/addproduct"}>Seller</ActiveLink>
-              </li>
-            )}
-            {isBuyer && (
-              <li>
-                <ActiveLink to={"/dashboard/addproduct"}>buyer</ActiveLink>
-              </li>
-            )}
           </ul>
         </div>
       </div>
