@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import useUsers from "../../hooks/useUsers";
 
 const Sellers = () => {
+  const [users] = useUsers();
+  console.log(users);
   return (
     <div>
       {/* Page Banner Design */}
