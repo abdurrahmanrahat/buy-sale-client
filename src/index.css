@@ -80,3 +80,10 @@
     background-position: bottom;
     background-size: cover;
 }
+
+/* sellers page */
+.sellers-page-div {
+    background-image: url("./assets//seller-page.png");
+    background-position: center;
+    background-size: cover;
+}
