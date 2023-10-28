@@ -47,6 +47,9 @@ const Navbar = () => {
               <ActiveLink to="/addProduct">Add Product</ActiveLink>
             </li>
           )}
+          <li>
+              <ActiveLink to="/dashboard">Dashboard</ActiveLink>
+            </li>
         </ul>
 
         {/* Mobile menu */}
