@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import useProducts from "../../hooks/useProducts";
+import Product from "./Product";
 
 const Products = () => {
+  const [products] = useProducts();
+
   return (
     <div>
       {/* Page Banner Design */}
@@ -22,7 +26,7 @@ const Products = () => {
       {/* Page Content Start */}
       <div className="my-24">
         {/* search and filter option */}
-        <div className="md:flex text-center md:px-24">
+        <div className="md:flex text-center md:px-24 mb-10">
           <div className="input-group pl-14 md:pl-0 pb-4 md:pb-0">
             <input
               type="text"
@@ -47,10 +51,8 @@ const Products = () => {
               </svg>
             </button>
           </div>
-          <div className="">
-            <label className="block mb-2 text-lg">
-              <span className="">Category</span>
-            </label>
+          <div className="flex items-center justify-center gap-2">
+            <span className="text-lg">Category</span>
             <select className=" px-3 py-3 bg-[#000000a4] rounded-sm focus:outline-none">
               <option disabled selected>
                 default
@@ -63,6 +65,11 @@ const Products = () => {
         </div>
 
         {/* all products list */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {products.map((product) => (
+            <Product key={product._id} product={product}></Product>
+          ))}
+        </div>
       </div>
     </div>
   );
