@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
 import useUsers from "../../hooks/useUsers";
+import Seller from "./Seller";
 
 const Sellers = () => {
   const [users] = useUsers();
   console.log(users);
+
+  const sellers = users.filter((user) => user.role === "seller");
+  console.log(sellers);
+
   return (
     <div>
       {/* Page Banner Design */}
@@ -21,7 +26,13 @@ const Sellers = () => {
           <span className="font-semibold">/</span> Sellers
         </p>
       </div>
-      Sellers Page
+
+      {/* seller card */}
+      <div className="my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 p-4 md:p-10">
+        {sellers.map((seller) => (
+          <Seller key={seller._id} seller={seller}></Seller>
+        ))}
+      </div>
     </div>
   );
 };
