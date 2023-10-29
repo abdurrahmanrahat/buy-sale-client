@@ -12,6 +12,7 @@ import Dashboard from "../layout/Dashboard";
 import DashboardHome from "../pages/Dashboard/Dashboard/DashboardHome";
 import MyProducts from "../pages/Dashboard/Seller/MyProducts/MyProducts";
 import UpdateProduct from "../pages/Dashboard/Seller/UpdateProduct/UpdateProduct";
+import MyCart from "../pages/Dashboard/Buyer/MyCart/MyCart";
 
 const router = createBrowserRouter([
   {
@@ -73,6 +74,11 @@ const router = createBrowserRouter([
         path: "/dashboard/addproduct",
         element: <AddProduct></AddProduct>,
       },
+      // buyer route
+      {
+        path: "/dashboard/cart",
+        element: <MyCart></MyCart>
+      }
     ],
   },
 ]);

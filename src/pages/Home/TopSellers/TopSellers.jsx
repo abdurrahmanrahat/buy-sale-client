@@ -24,7 +24,7 @@ const TopSellers = () => {
 
       {/* product showing by map */}
       <div className="my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 p-4 md:p-10">
-        {sellers?.map((seller) => (
+        {sellers?.slice(0, 6).map((seller) => (
           <TopSeller key={seller._id} seller={seller}></TopSeller>
         ))}
       </div>

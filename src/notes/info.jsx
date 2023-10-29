@@ -8,13 +8,26 @@
  * JavaScript
  * TailwindCSS
  * HeadlessUI
+ * Firebase
  * Using Packages lists
  * Swiperjs
  * react text modifier
  * LottieFiles
  * react ratting
  * react tabs
+ * react icons
+ * react hot toast
+ * react hook form
  * swiper js
+ * tanStack query
+ * axios
+ * Sweet alert
+ * 
+ * ----backed----
+ * Express JS
+ * MongoDB
+ * Cors
+ * Node JS
  *
  */
 
@@ -30,4 +43,12 @@
  *
  */
 
-// product image- 240 * 180
+/**
+ * BUYER INFO
+ * 
+ * billalhossan@gmail.com || Billal47&
+ * 
+*/
+
+// product image- 280 * 320
+// seller image- 540 * 500

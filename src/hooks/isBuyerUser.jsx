@@ -19,6 +19,7 @@ const isBuyerUser = () => {
       return res.data;
     },
   });
+  // console.log(isBuyer);
 
   return [isBuyer, isLoading];
 };

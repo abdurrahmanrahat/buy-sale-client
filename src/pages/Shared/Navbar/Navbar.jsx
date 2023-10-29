@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import ActiveLink from "./ActiveLink";
 import { useContext, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { BsCartCheck } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
 import { AuthContext } from "../../../provider/AuthProvider";
 import toast from "react-hot-toast";
@@ -48,8 +49,11 @@ const Navbar = () => {
             </li>
           )}
           <li>
-              <ActiveLink to="/dashboard">Dashboard</ActiveLink>
-            </li>
+            <ActiveLink to="/dashboard">Dashboard</ActiveLink>
+          </li>
+          <li className="text-[22px]">
+            <ActiveLink to="/dashboard/cart"><BsCartCheck /></ActiveLink>
+          </li>
         </ul>
 
         {/* Mobile menu */}

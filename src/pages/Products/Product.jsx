@@ -1,9 +1,14 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Product = ({ product }) => {
+  const { user } = useContext(AuthContext);
+
   const {
     _id,
     productName,
+    productCategory,
     productImg,
     productPrice,
     productFeatures,
@@ -13,7 +18,44 @@ const Product = ({ product }) => {
     productCamera,
     productPort,
     productRelease,
+    productRatting,
+    productDescription,
+    productUpcomingFeature,
+    sellerEmail,
+    sellerName,
   } = product;
+
+  // handle product buy function
+  const handleProductBuy = () => {
+    if (user && user.email) {
+      console.log(product);
+
+      const cartProduct = {
+        buyerName: user.displayName,
+        buyerEmail: user.email,
+        productId: _id,
+        productName,
+        productCategory,
+        productImg,
+        productPrice,
+        productFeatures,
+        productRAM,
+        productStorage,
+        productWarranty,
+        productCamera,
+        productPort,
+        productRelease,
+        productRatting,
+        productDescription,
+        productUpcomingFeature,
+        sellerEmail,
+        sellerName,
+      };
+      console.log(cartProduct);
+    } else {
+      
+    }
+  };
 
   return (
     <div className="bg-gray-900 text-white rounded-lg overflow-hidden shadow-lg p-4 md:p-8 mx-8 md:mx-0">
@@ -39,7 +81,10 @@ const Product = ({ product }) => {
         </div>
       </div>
       <div className="flex items-center justify-evenly">
-        <button className="text-[18px] font-semibold bg-[#9875ff] px-4 py-1 rounded">
+        <button
+          onClick={handleProductBuy}
+          className="text-[18px] font-semibold bg-[#9875ff] px-4 py-1 rounded"
+        >
           Buy
         </button>
         <div className="flex items-center">
