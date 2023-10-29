@@ -24,7 +24,7 @@ const ProductsManage = () => {
             </tr>
           </thead>
           <tbody>
-            {products.map((product, index) => (
+            {products?.map((product, index) => (
               <tr key={index} className=" text-white ">
                 <td>{index + 1}</td>
                 <td>

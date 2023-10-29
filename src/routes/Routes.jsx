@@ -16,6 +16,7 @@ import MyCart from "../pages/Dashboard/Buyer/MyCart/MyCart";
 import PurchaseProducts from "../pages/Dashboard/Buyer/PurchaseProducts/PurchaseProducts";
 import UsersManage from "../pages/Dashboard/Admin/UsersManage/UsersManage";
 import ProductsManage from "../pages/Dashboard/Admin/ProductsManage/ProductsManage";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +38,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/products/:id",
-        element: <ProductDetails></ProductDetails>,
+        element: (
+          <PrivateRoute>
+            <ProductDetails></ProductDetails>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/products/${params.id}`),
       },
@@ -66,11 +71,11 @@ const router = createBrowserRouter([
       // admin route
       {
         path: "/dashboard/users-manage",
-        element: <UsersManage></UsersManage>
+        element: <UsersManage></UsersManage>,
       },
       {
         path: "/dashboard/products-manage",
-        element: <ProductsManage></ProductsManage>
+        element: <ProductsManage></ProductsManage>,
       },
 
       // seller route
@@ -92,12 +97,12 @@ const router = createBrowserRouter([
       // buyer route
       {
         path: "/dashboard/cart",
-        element: <MyCart></MyCart>
+        element: <MyCart></MyCart>,
       },
       {
         path: "/dashboard/purchase-products",
-        element: <PurchaseProducts></PurchaseProducts>
-      }
+        element: <PurchaseProducts></PurchaseProducts>,
+      },
     ],
   },
 ]);
