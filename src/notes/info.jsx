@@ -9,6 +9,7 @@
  * TailwindCSS
  * HeadlessUI
  * Firebase
+ * 
  * Using Packages lists
  * Swiperjs
  * react text modifier
