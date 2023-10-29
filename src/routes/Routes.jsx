@@ -14,6 +14,8 @@ import MyProducts from "../pages/Dashboard/Seller/MyProducts/MyProducts";
 import UpdateProduct from "../pages/Dashboard/Seller/UpdateProduct/UpdateProduct";
 import MyCart from "../pages/Dashboard/Buyer/MyCart/MyCart";
 import PurchaseProducts from "../pages/Dashboard/Buyer/PurchaseProducts/PurchaseProducts";
+import UsersManage from "../pages/Dashboard/Admin/UsersManage/UsersManage";
+import ProductsManage from "../pages/Dashboard/Admin/ProductsManage/ProductsManage";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +63,17 @@ const router = createBrowserRouter([
         path: "/dashboard",
         element: <DashboardHome></DashboardHome>,
       },
+      // admin route
+      {
+        path: "/dashboard/users-manage",
+        element: <UsersManage></UsersManage>
+      },
+      {
+        path: "/dashboard/products-manage",
+        element: <ProductsManage></ProductsManage>
+      },
+
+      // seller route
       {
         path: "/dashboard/myproducts",
         element: <MyProducts></MyProducts>,
@@ -75,6 +88,7 @@ const router = createBrowserRouter([
         path: "/dashboard/addproduct",
         element: <AddProduct></AddProduct>,
       },
+
       // buyer route
       {
         path: "/dashboard/cart",

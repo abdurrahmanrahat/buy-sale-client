@@ -15,7 +15,7 @@ const useUsers = () => {
     },
   });
 
-  return [users, isLoading];
+  return [users, refetch];
 };
 
 export default useUsers;

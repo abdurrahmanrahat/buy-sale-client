@@ -45,13 +45,13 @@ const Dashboard = () => {
             {isAdmin && (
               <>
                 <li>
-                  <ActiveLink to={"/dashboard/users"}>
-                    Users Management
+                  <ActiveLink to={"/dashboard/products-manage"}>
+                    Products Manage
                   </ActiveLink>
                 </li>
                 <li>
-                  <ActiveLink to={"/dashboard/products"}>
-                    Products Manage
+                  <ActiveLink to={"/dashboard/users-manage"}>
+                    Users Management
                   </ActiveLink>
                 </li>
               </>
