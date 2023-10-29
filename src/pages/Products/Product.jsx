@@ -1,9 +1,13 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Product = ({ product }) => {
   const { user } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const {
     _id,
@@ -53,7 +57,18 @@ const Product = ({ product }) => {
       };
       console.log(cartProduct);
     } else {
-      
+      Swal.fire({
+        title: "Please login to buy products",
+        icon: "warning",
+        showCancelButton: true,
+        cancelButtonColor: "#d33",
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "Login",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login", { state: { from: location } });
+        }
+      });
     }
   };
 
