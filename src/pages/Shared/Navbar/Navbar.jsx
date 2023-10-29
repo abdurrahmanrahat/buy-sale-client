@@ -7,10 +7,14 @@ import { IoMdClose } from "react-icons/io";
 import { AuthContext } from "../../../provider/AuthProvider";
 import toast from "react-hot-toast";
 import DarkMoodToggle from "../../../components/DarkMoodToggle/DarkMoodToggle";
+import getCartProductsByEmail from "../../../hooks/getCartProductsByEmail";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+
+  const [cartProducts] = getCartProductsByEmail();
+  console.log(cartProducts);
 
   // user logout
   const handleLogout = () => {
@@ -51,8 +55,13 @@ const Navbar = () => {
           <li>
             <ActiveLink to="/dashboard">Dashboard</ActiveLink>
           </li>
-          <li className="text-[22px]">
-            <ActiveLink to="/dashboard/cart"><BsCartCheck /></ActiveLink>
+          <li className="text-[22px] relative">
+            <ActiveLink to="/dashboard/cart">
+              <BsCartCheck />
+            </ActiveLink>
+            <span className="absolute -top-[14px] -right-[10px] font-semibold text-[18px] text-[#EE9322]">
+              {cartProducts ? cartProducts.length : 0}
+            </span>
           </li>
         </ul>
 
