@@ -1,7 +1,23 @@
+import toast from "react-hot-toast";
 import useUsers from "../../../../hooks/useUsers";
 
 const UsersManage = () => {
   const [users, refetch] = useUsers();
+
+  // handle buyer user update to seller
+  const handleMakeSeller = (user) => {
+    fetch(`http://localhost:5000/users/${user._id}`, {
+      method: "PATCH",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          refetch();
+          toast.success(`${user.name} is now Seller.`);
+        }
+      });
+  };
+
   return (
     <div>
       <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-semibold text-center mt-6">
@@ -46,7 +62,10 @@ const UsersManage = () => {
                 <td className="text-lg">{user.email}</td>
                 <td className="text-lg">
                   {user.role == "buyer" ? (
-                    <button className="text-[12px] font-semibold bg-[#9875ff] px-2 py-1 rounded">
+                    <button
+                      onClick={() => handleMakeSeller(user)}
+                      className="text-[12px] font-semibold bg-[#9875ff] px-2 py-1 rounded"
+                    >
                       Make Seller
                     </button>
                   ) : user.role === "admin" ? (
@@ -58,11 +77,13 @@ const UsersManage = () => {
                   )}
                 </td>
                 <td>
-                  {
-                    user.role === "admin" ? <span className="uppercase font-semibold">King</span> : <button className="text-[14px] font-semibold bg-[#EE9322] px-2 py-1 rounded">
-                    Delete
-                  </button>
-                  }
+                  {user.role === "admin" ? (
+                    <span className="uppercase font-semibold">King</span>
+                  ) : (
+                    <button className="text-[14px] font-semibold bg-[#EE9322] px-2 py-1 rounded">
+                      Delete
+                    </button>
+                  )}
                 </td>
               </tr>
             ))}
