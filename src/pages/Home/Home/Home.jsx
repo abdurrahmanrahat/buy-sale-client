@@ -3,6 +3,7 @@ import Blogs from "../Blogs/Blogs";
 import GallerySection from "../GallerySection/GallerySection";
 import IntroSection from "../IntroSection/IntroSection";
 import TopProducts from "../TopProducts/TopProducts";
+import TopSellers from "../TopSellers/TopSellers";
 
 const Home = () => {
   return (
@@ -15,7 +16,7 @@ const Home = () => {
 
       <GallerySection></GallerySection>
 
-      {/* Top seller section */}
+      <TopSellers></TopSellers>
 
       <Blogs></Blogs>
     </div>

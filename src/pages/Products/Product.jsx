@@ -39,7 +39,9 @@ const Product = ({ product }) => {
         </div>
       </div>
       <div className="flex items-center justify-evenly">
-        <p>{productRelease}</p>
+        <button className="text-[18px] font-semibold bg-[#9875ff] px-4 py-1 rounded">
+          Buy
+        </button>
         <div className="flex items-center">
           <Link to={`/products/${_id}`}>
             <button className="text-[18px] font-semibold bg-[#EE9322] px-4 py-2 rounded">

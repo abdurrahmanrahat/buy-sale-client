@@ -1,14 +1,21 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
 
 const useUsers = () => {
-  const [users, setUsers] = useState([]);
+  const {
+    data: users,
+    refetch,
+    isLoading,
+  } = useQuery({
+    queryKey: ["users"],
+    queryFn: async () => {
+      const res = await axios("http://localhost:5000/users");
+      return res.data;
+    },
+  });
 
-  useEffect(() => {
-    fetch("http://localhost:5000/users")
-      .then((res) => res.json())
-      .then((data) => setUsers(data));
-  }, []);
-  return [users];
+  return [users, isLoading];
 };
 
 export default useUsers;

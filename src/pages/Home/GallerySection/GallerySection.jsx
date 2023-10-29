@@ -18,7 +18,7 @@ import Samsung4 from "../../../assets/gallery/samsung4.png";
 
 const GallerySection = () => {
   return (
-    <div className="my-24">
+    <div className="mt-20 mb-12">
       <div className="text-center md:px-28 mb-10">
         <h2 className="text-3xl md:text-4xl font-semibold mb-2">
           Popular Gallery
