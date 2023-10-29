@@ -18,6 +18,20 @@ const UsersManage = () => {
       });
   };
 
+  // handle delete user function
+  const handleDeleteUser = (user) => {
+    fetch(`http://localhost:5000/users/${user._id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          refetch();
+          toast.success("User delete successfully.");
+        }
+      });
+  };
+
   return (
     <div>
       <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-semibold text-center mt-6">
@@ -80,7 +94,10 @@ const UsersManage = () => {
                   {user.role === "admin" ? (
                     <span className="uppercase font-semibold">King</span>
                   ) : (
-                    <button className="text-[14px] font-semibold bg-[#EE9322] px-2 py-1 rounded">
+                    <button
+                      onClick={() => handleDeleteUser(user)}
+                      className="text-[14px] font-semibold bg-[#EE9322] px-2 py-1 rounded"
+                    >
                       Delete
                     </button>
                   )}
