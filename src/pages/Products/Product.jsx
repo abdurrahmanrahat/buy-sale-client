@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const Product = ({ product }) => {
   const { user } = useContext(AuthContext);
@@ -32,7 +33,7 @@ const Product = ({ product }) => {
   // handle product buy function
   const handleProductBuy = () => {
     if (user && user.email) {
-      console.log(product);
+      // console.log(product);
 
       const cartProduct = {
         buyerName: user.displayName,
@@ -55,7 +56,21 @@ const Product = ({ product }) => {
         sellerEmail,
         sellerName,
       };
-      console.log(cartProduct);
+
+      // send cart product to db
+      fetch("http://localhost:5000/cartproducts", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(cartProduct),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            toast.success("Product add to cart.");
+          }
+        });
     } else {
       Swal.fire({
         title: "Please login to buy products",
