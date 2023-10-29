@@ -8,13 +8,15 @@ import { AuthContext } from "../../../provider/AuthProvider";
 import toast from "react-hot-toast";
 import DarkMoodToggle from "../../../components/DarkMoodToggle/DarkMoodToggle";
 import getCartProductsByEmail from "../../../hooks/getCartProductsByEmail";
+import isSellerUser from "../../../hooks/isSellerUser";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const [isSeller] = isSellerUser();
 
   const [cartProducts] = getCartProductsByEmail();
-  console.log(cartProducts);
+  // console.log(cartProducts);
 
   // user logout
   const handleLogout = () => {
@@ -47,7 +49,7 @@ const Navbar = () => {
           <li>
             <ActiveLink to="/sellers">Sellers</ActiveLink>
           </li>
-          {user && (
+          {isSeller && (
             <li>
               <ActiveLink to="/addProduct">Add Product</ActiveLink>
             </li>
@@ -102,8 +104,21 @@ const Navbar = () => {
                     <li>
                       <ActiveLink to="/sellers">Sellers</ActiveLink>
                     </li>
+                    {isSeller && (
+                      <li>
+                        <ActiveLink to="/addProduct">Add Product</ActiveLink>
+                      </li>
+                    )}
                     <li>
-                      <ActiveLink to="/addProduct">Add Product</ActiveLink>
+                      <ActiveLink to="/dashboard">Dashboard</ActiveLink>
+                    </li>
+                    <li className="text-[22px] relative">
+                      <ActiveLink to="/dashboard/cart">
+                        <BsCartCheck />
+                      </ActiveLink>
+                      <span className="absolute -top-[14px] left-[24px] font-semibold text-[18px] text-[#EE9322]">
+                        {cartProducts ? cartProducts.length : 0}
+                      </span>
                     </li>
                   </ul>
                 </nav>

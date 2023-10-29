@@ -78,6 +78,11 @@ const Dashboard = () => {
                   <ActiveLink to={"/dashboard/cart"}>My Cart</ActiveLink>
                 </li>
                 <li>
+                  <ActiveLink to={"/dashboard/purchase-products"}>
+                    Purchase Products
+                  </ActiveLink>
+                </li>
+                <li>
                   <ActiveLink to={"/dashboard/payment-history"}>
                     Payment History
                   </ActiveLink>

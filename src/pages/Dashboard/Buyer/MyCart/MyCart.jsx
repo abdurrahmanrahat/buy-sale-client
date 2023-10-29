@@ -17,7 +17,7 @@ const MyCart = () => {
               <th className="py-4">#</th>
               <th className="text-left">Photo</th>
               <th className="text-left">Product Name</th>
-              <th className="text-left">Buyer Name</th>
+              <th className="text-left">Seller Name</th>
               <th className="text-left">Category</th>
               <th className="text-right pe-4">Price</th>
               <th className="text-left">Action</th>
@@ -46,7 +46,7 @@ const MyCart = () => {
                     </span>
                   </div>
                 </td>
-                <td className="text-lg">{cartProducts.buyerName}</td>
+                <td className="text-lg">{cartProducts.sellerName}</td>
                 <td className="text-lg">{cartProducts.productCategory}</td>
                 <td className="text-lg text-right">
                   ${cartProducts?.productPrice}

@@ -13,6 +13,7 @@ import DashboardHome from "../pages/Dashboard/Dashboard/DashboardHome";
 import MyProducts from "../pages/Dashboard/Seller/MyProducts/MyProducts";
 import UpdateProduct from "../pages/Dashboard/Seller/UpdateProduct/UpdateProduct";
 import MyCart from "../pages/Dashboard/Buyer/MyCart/MyCart";
+import PurchaseProducts from "../pages/Dashboard/Buyer/PurchaseProducts/PurchaseProducts";
 
 const router = createBrowserRouter([
   {
@@ -78,6 +79,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/cart",
         element: <MyCart></MyCart>
+      },
+      {
+        path: "/dashboard/purchase-products",
+        element: <PurchaseProducts></PurchaseProducts>
       }
     ],
   },
