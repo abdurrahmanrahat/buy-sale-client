@@ -3,9 +3,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
+import getCartProductsByEmail from "../../hooks/getCartProductsByEmail";
 
 const Product = ({ product }) => {
   const { user } = useContext(AuthContext);
+
+  const [, refetch] = getCartProductsByEmail();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -68,6 +71,7 @@ const Product = ({ product }) => {
         .then((res) => res.json())
         .then((data) => {
           if (data.insertedId) {
+            refetch();
             toast.success("Product add to cart.");
           }
         });
