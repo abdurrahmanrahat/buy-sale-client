@@ -1,7 +1,23 @@
+import toast from "react-hot-toast";
 import useProducts from "../../../../hooks/useProducts";
 
 const ProductsManage = () => {
   const [products, refetch] = useProducts();
+
+  // handle product delete
+  const handleProductDelete = (product) => {
+    fetch(`http://localhost:5000/products/${product._id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          toast.success("Product delete successfully.");
+          refetch();
+        }
+      });
+  };
+
   return (
     <div>
       <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-semibold text-center mt-6">
@@ -48,7 +64,10 @@ const ProductsManage = () => {
                 <td className="text-lg">{product.productCategory}</td>
                 <td className="text-lg text-right">${product?.productPrice}</td>
                 <td>
-                  <button className="text-[16px] font-semibold bg-[#EE9322] px-2 py-1 rounded">
+                  <button
+                    onClick={() => handleProductDelete(product)}
+                    className="text-[16px] font-semibold bg-[#EE9322] px-2 py-1 rounded"
+                  >
                     Delete
                   </button>
                 </td>
