@@ -44,11 +44,25 @@ const UsersManage = () => {
                   </div>
                 </td>
                 <td className="text-lg">{user.email}</td>
-                <td className="text-lg">{user.role}</td>
+                <td className="text-lg">
+                  {user.role == "buyer" ? (
+                    <button className="text-[12px] font-semibold bg-[#9875ff] px-2 py-1 rounded">
+                      Make Seller
+                    </button>
+                  ) : user.role === "admin" ? (
+                    <span className="text-[18px] text-[#9875ff] font-[600]">
+                      {user.role}
+                    </span>
+                  ) : (
+                    <span className="text-[18px] font-[500]">{user.role}</span>
+                  )}
+                </td>
                 <td>
-                  <button className="text-[16px] font-semibold bg-[#EE9322] px-2 py-1 rounded">
+                  {
+                    user.role === "admin" ? <span className="uppercase font-semibold">King</span> : <button className="text-[14px] font-semibold bg-[#EE9322] px-2 py-1 rounded">
                     Delete
                   </button>
+                  }
                 </td>
               </tr>
             ))}
