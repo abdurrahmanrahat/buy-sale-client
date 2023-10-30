@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import getCartProductsByEmail from "../../../../hooks/getCartProductsByEmail";
 
 const MyCart = () => {
@@ -52,9 +53,11 @@ const MyCart = () => {
                   ${cartProducts?.productPrice}
                 </td>
                 <td>
-                  <button className="text-[16px] font-semibold bg-[#EE9322] px-2 py-1 rounded">
-                    Payment
-                  </button>
+                  <Link to="/dashboard/payment">
+                    <button className="text-[16px] font-semibold bg-[#EE9322] px-2 py-1 rounded">
+                      Payment
+                    </button>
+                  </Link>
                 </td>
               </tr>
             ))}

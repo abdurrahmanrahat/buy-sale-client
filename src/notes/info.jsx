@@ -23,6 +23,7 @@
  * tanStack query
  * axios
  * Sweet alert
+ * Stripe
  * 
  * ----backed----
  * Express JS

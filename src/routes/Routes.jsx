@@ -17,6 +17,7 @@ import PurchaseProducts from "../pages/Dashboard/Buyer/PurchaseProducts/Purchase
 import UsersManage from "../pages/Dashboard/Admin/UsersManage/UsersManage";
 import ProductsManage from "../pages/Dashboard/Admin/ProductsManage/ProductsManage";
 import PrivateRoute from "./PrivateRoute";
+import Payment from "../pages/Dashboard/Buyer/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -103,6 +104,10 @@ const router = createBrowserRouter([
         path: "/dashboard/purchase-products",
         element: <PurchaseProducts></PurchaseProducts>,
       },
+      {
+        path: "/dashboard/payment",
+        element: <Payment></Payment>
+      }
     ],
   },
 ]);

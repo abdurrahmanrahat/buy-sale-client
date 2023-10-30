@@ -4,14 +4,14 @@ import Seller from "./Seller";
 import Loading from "../../components/Loading/Loading";
 
 const Sellers = () => {
-  const [users, isLoading] = useUsers();
+  const [users, ,isLoading] = useUsers();
   // console.log(users);
 
   const sellers = users?.filter((user) => user.role === "seller");
   console.log(sellers);
 
-  if(isLoading){
-    return <Loading></Loading>
+  if (isLoading) {
+    return <Loading></Loading>;
   }
 
   return (
