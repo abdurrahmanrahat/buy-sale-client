@@ -11,10 +11,16 @@ const TopSeller = ({ seller }) => {
         <div>
           <h2 className="text-2xl font-semibold">{name}</h2>
           <p className="text-lg">{email}</p>
-          <p className="text-lg">+8801826893832</p>
+          <p className="text-lg">
+            {email === "linthia@islam.com" && "+8801826893832"}
+            {email === "mathewarnold@gmail.com" && "+8801623853836"}
+            {email === "williamblack@gmail.com" && "+88015628938354"}
+            {email === "elizabeth@gmaili.com" && "+8801966897882"}
+            {email === "sidney@gmail.com" && "+8801726856833"}
+            {email === "jsonroy@gmail.com" && "+8801326693848"}
+          </p>
         </div>
       </div>
-      
     </div>
   );
 };
