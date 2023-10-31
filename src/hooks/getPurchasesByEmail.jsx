@@ -11,7 +11,7 @@ const getPurchasesByEmail = () => {
     refetch,
     isLoading,
   } = useQuery({
-    queryKey: ["productsbyemail"],
+    queryKey: ["purchases"],
     queryFn: async () => {
       const res = await axios(
         `http://localhost:5000/purchases?email=${user?.email}`

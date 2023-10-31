@@ -27,7 +27,7 @@ const HistoryCard = ({ payment }) => {
         </div>
       </div>
       <div className="mt-4">
-        <h3 className="text-xl font-semibold">Cart Items:</h3>
+        <h3 className="text-xl font-semibold">Cart Items: {productsName.length}</h3>
         <ul className="list-disc list-inside">
           {productsName.map((productName, index) => (
             <li key={productsId[index]}>{productName}</li>
