@@ -18,6 +18,7 @@ import UsersManage from "../pages/Dashboard/Admin/UsersManage/UsersManage";
 import ProductsManage from "../pages/Dashboard/Admin/ProductsManage/ProductsManage";
 import PrivateRoute from "./PrivateRoute";
 import Payment from "../pages/Dashboard/Buyer/Payment/Payment";
+import PayHistory from "../pages/Dashboard/Buyer/PayHistory/PayHistory";
 
 const router = createBrowserRouter([
   {
@@ -107,6 +108,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/payment",
         element: <Payment></Payment>
+      },
+      {
+        path: "/dashboard/payment-history",
+        element: <PayHistory></PayHistory>
       }
     ],
   },
