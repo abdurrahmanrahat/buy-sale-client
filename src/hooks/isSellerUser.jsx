@@ -10,7 +10,6 @@ const isSellerUser = () => {
 
   const findUser = users?.find((u) => u.email === user?.email);
 
-  console.log(findUser);
   const isSeller = findUser?.role === "seller";
 
   // const {

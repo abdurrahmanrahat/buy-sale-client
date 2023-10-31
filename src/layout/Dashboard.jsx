@@ -12,7 +12,7 @@ const Dashboard = () => {
   const [isBuyer] = isBuyerUser();
   const [isAdmin] = isAdminUser();
 
-  console.log(isSeller);
+  // console.log(isBuyer);
 
   return (
     <div className="drawer lg:drawer-open">
