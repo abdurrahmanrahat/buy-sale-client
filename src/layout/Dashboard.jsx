@@ -3,8 +3,11 @@ import ActiveLink from "../pages/Shared/Navbar/ActiveLink";
 import isSellerUser from "../hooks/isSellerUser";
 import isBuyerUser from "../hooks/isBuyerUser";
 import isAdminUser from "../hooks/isAdminUser";
+import getCartProductsByEmail from "../hooks/getCartProductsByEmail";
 
 const Dashboard = () => {
+  const [cartProducts] = getCartProductsByEmail();
+
   const [isSeller] = isSellerUser();
   const [isBuyer] = isBuyerUser();
   const [isAdmin] = isAdminUser();
@@ -74,8 +77,11 @@ const Dashboard = () => {
 
             {isBuyer && (
               <>
-                <li>
+                <li className="relative">
                   <ActiveLink to={"/dashboard/cart"}>My Cart</ActiveLink>
+                  <span className="absolute top-0 left-[70px] font-semibold text-[18px] text-[#9875ff]">
+                    {cartProducts ? cartProducts.length : 0}
+                  </span>
                 </li>
                 <li>
                   <ActiveLink to={"/dashboard/purchase-products"}>

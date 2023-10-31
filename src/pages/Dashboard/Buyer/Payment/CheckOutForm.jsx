@@ -4,11 +4,13 @@ import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../../../provider/AuthProvider";
 import "./CheckOutForm.css";
+import getCartProductsByEmail from "../../../../hooks/getCartProductsByEmail";
 
 const CheckOutForm = ({ price, cartProducts }) => {
   const { user } = useContext(AuthContext);
   const [clientSecret, setClientSecret] = useState("");
   const [processing, setProcessing] = useState(false);
+  const [, refetch] = getCartProductsByEmail();
 
   const stripe = useStripe();
   const elements = useElements();
@@ -80,6 +82,7 @@ const CheckOutForm = ({ price, cartProducts }) => {
 
     if (paymentIntent.status === "succeeded") {
       const transactionId = paymentIntent.id;
+      refetch();
       toast.success(`Payment success- Id: ${transactionId}`);
       // send payment data to db
       const payment = {
