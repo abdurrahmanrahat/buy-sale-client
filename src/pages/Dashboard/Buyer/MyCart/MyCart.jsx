@@ -5,9 +5,18 @@ const MyCart = () => {
   const [cartProducts] = getCartProductsByEmail();
   return (
     <div>
-      <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-semibold text-center mt-6">
-        List of Products: {cartProducts?.length}
-      </h2>
+      <div className="flex items-center justify-evenly">
+        <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-semibold text-center mt-6">
+          List of Products: {cartProducts?.length}
+        </h2>
+        <div className="mt-8">
+          <Link to="/dashboard/payment">
+            <button className="text-[16px] font-semibold bg-[#9875ff] px-2 py-1 rounded">
+              Payment
+            </button>
+          </Link>
+        </div>
+      </div>
 
       {/* Table Here */}
       <div className="overflow-x-auto my-10">
@@ -53,16 +62,9 @@ const MyCart = () => {
                   ${cartProduct?.productPrice}
                 </td>
                 <td>
-                  <Link
-                    to={{
-                      pathname: "/dashboard/payment",
-                      state: cartProduct.productPrice,
-                    }}
-                  >
-                    <button className="text-[16px] font-semibold bg-[#EE9322] px-2 py-1 rounded">
-                      Payment
-                    </button>
-                  </Link>
+                  <button className="text-[16px] font-semibold bg-[#EE9322] px-2 py-1 rounded">
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
