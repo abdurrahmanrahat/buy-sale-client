@@ -8,7 +8,7 @@ const Sellers = () => {
   // console.log(users);
 
   const sellers = users?.filter((user) => user.role === "seller");
-  console.log(sellers);
+  // console.log(sellers);
 
   if (isLoading) {
     return <Loading></Loading>;

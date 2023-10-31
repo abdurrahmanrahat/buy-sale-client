@@ -1,4 +1,10 @@
+import toast from "react-hot-toast";
+
 const Seller = ({ seller }) => {
+  const handleSeller = () => {
+    toast.success("Will contact with you via email.");
+  };
+
   const { name, email, photo } = seller;
   return (
     <div className="bg-gray-900 text-white rounded-lg shadow-xl p-6 mb-4">
@@ -22,7 +28,10 @@ const Seller = ({ seller }) => {
         </div>
       </div>
       <div className="text-end mr-10">
-        <button className="bg-[#EE9322] hover:bg-[#f39726] text-white font-semibold py-2 px-4 rounded-full transform hover:scale-105 transition-transform duration-300">
+        <button
+          onClick={handleSeller}
+          className="bg-[#EE9322] hover:bg-[#f39726] text-white font-semibold py-2 px-4 rounded-full transform hover:scale-105 transition-transform duration-300"
+        >
           Chat
         </button>
       </div>

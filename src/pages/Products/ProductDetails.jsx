@@ -13,7 +13,7 @@ import {
 
 const ProductDetails = () => {
   const product = useLoaderData();
-  console.log(product);
+  // console.log(product);
   const {
     _id,
     productName,

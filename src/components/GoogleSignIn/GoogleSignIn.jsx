@@ -16,7 +16,7 @@ const GoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+        // console.log(loggedUser);
         // send to db and role as default buyer
         const savedUser = {
           name: loggedUser.displayName,

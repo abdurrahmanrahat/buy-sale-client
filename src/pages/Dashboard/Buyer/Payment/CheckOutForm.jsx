@@ -96,9 +96,9 @@ const CheckOutForm = ({ price, cartProducts }) => {
         orderStatus: "pending",
         itemNames: cartProducts.map((item) => item.productName),
       };
-      console.log(payment);
+      // console.log(payment);
       axios.post("http://localhost:5000/payments", payment).then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.insertResult.insertedId) {
           toast.success("Payment Info saved in DB");
         }

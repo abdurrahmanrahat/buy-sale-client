@@ -6,7 +6,7 @@ const TopSellers = () => {
   // console.log(users);
 
   const sellers = users?.filter((user) => user.role === "seller");
-  console.log(sellers);
+  // console.log(sellers);
 
   return (
     <div className="mb-16">

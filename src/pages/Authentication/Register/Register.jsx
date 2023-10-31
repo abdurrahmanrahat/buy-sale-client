@@ -29,7 +29,7 @@ const Register = () => {
     const name = data.name;
     const email = data.email;
     const password = data.password;
-    console.log(data);
+    // console.log(data);
 
     const formData = new FormData();
     formData.append("image", data.photo[0]);

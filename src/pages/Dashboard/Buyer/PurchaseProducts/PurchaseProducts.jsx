@@ -2,7 +2,7 @@ import getPurchasesByEmail from "../../../../hooks/getPurchasesByEmail";
 
 const PurchaseProducts = () => {
   const [purchases] = getPurchasesByEmail();
-  console.log("purchases", purchases);
+  // console.log("purchases", purchases);
   return (
     <div>
       <div className="flex items-center justify-center">
