@@ -6,7 +6,7 @@ const UsersManage = () => {
 
   // handle buyer user update to seller
   const handleMakeSeller = (user) => {
-    fetch(`http://localhost:5000/users/${user._id}`, {
+    fetch(`https://device-market-server.vercel.app/users/${user._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -20,7 +20,7 @@ const UsersManage = () => {
 
   // handle delete user function
   const handleDeleteUser = (user) => {
-    fetch(`http://localhost:5000/users/${user._id}`, {
+    fetch(`https://device-market-server.vercel.app/users/${user._id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

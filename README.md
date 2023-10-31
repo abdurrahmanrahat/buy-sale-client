@@ -1,6 +1,6 @@
-# Device Market
+# Device Market || Live Line- _https://buy-sale-mern.web.app/_
 
-about project
+Outstanding UI design with too many backed functionality in Device Market that there have three types of user, Buyer user, Seller user, Admin user. When user register, they can select their role. Seller can uplode their products wheres buyer can buy, seller can also buy products from other seller. Admin has various types of power to manage the products and users in this site.
 
 ## Here is a list of what is doing on this project
 

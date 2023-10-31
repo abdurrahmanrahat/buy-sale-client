@@ -68,7 +68,7 @@ const AddProduct = () => {
           };
 
           // Send new product to database store
-          fetch("http://localhost:5000/products", {
+          fetch("https://device-market-server.vercel.app/products", {
             method: "POST",
             headers: {
               "content-type": "application/json",

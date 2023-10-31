@@ -14,7 +14,7 @@ const getProductsByEmail = () => {
     queryKey: ["productsbyemail"],
     queryFn: async () => {
       const res = await axios(
-        `http://localhost:5000/products?email=${user?.email}`
+        `https://device-market-server.vercel.app/products?email=${user?.email}`
       );
       return res.data;
     },

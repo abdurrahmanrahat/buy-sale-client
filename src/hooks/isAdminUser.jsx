@@ -14,7 +14,7 @@ const isAdminUser = () => {
     queryKey: ["admin"],
     queryFn: async () => {
       const res = await axios(
-        `http://localhost:5000/admin?email=${user?.email}`
+        `https://device-market-server.vercel.app/admin?email=${user?.email}`
       );
       return res.data;
     },

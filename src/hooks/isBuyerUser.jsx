@@ -20,7 +20,7 @@ const isBuyerUser = () => {
   //   queryKey: ["buyer"],
   //   queryFn: async () => {
   //     const res = await axios(
-  //       `http://localhost:5000/buyer?email=${user?.email}`
+  //       `https://device-market-server.vercel.app/buyer?email=${user?.email}`
   //     );
   //     return res.data;
   //   },

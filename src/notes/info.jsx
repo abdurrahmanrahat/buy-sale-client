@@ -55,3 +55,6 @@
 
 // product image- 280 * 320
 // seller image- 540 * 500
+
+// server url- https://device-market-server.vercel.app/
+// local server- http://localhost:5000/

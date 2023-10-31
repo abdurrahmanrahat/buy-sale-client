@@ -46,7 +46,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(
+            `https://device-market-server.vercel.app/products/${params.id}`
+          ),
       },
       {
         path: "/sellers",
@@ -64,7 +66,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard></Dashboard>,
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/dashboard",
@@ -89,7 +95,9 @@ const router = createBrowserRouter([
         path: "/dashboard/updateproduct/:id",
         element: <UpdateProduct></UpdateProduct>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(
+            `https://device-market-server.vercel.app/products/${params.id}`
+          ),
       },
       {
         path: "/dashboard/addproduct",
@@ -99,7 +107,11 @@ const router = createBrowserRouter([
       // buyer route
       {
         path: "/dashboard/cart",
-        element: <MyCart></MyCart>,
+        element: (
+          <PrivateRoute>
+            <MyCart></MyCart>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/purchase-products",
@@ -107,12 +119,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/payment",
-        element: <Payment></Payment>
+        element: <Payment></Payment>,
       },
       {
         path: "/dashboard/payment-history",
-        element: <PayHistory></PayHistory>
-      }
+        element: <PayHistory></PayHistory>,
+      },
     ],
   },
 ]);

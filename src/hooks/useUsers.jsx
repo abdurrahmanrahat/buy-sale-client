@@ -10,7 +10,7 @@ const useUsers = () => {
   } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await axios("http://localhost:5000/users");
+      const res = await axios("https://device-market-server.vercel.app/users");
       return res.data;
     },
   });

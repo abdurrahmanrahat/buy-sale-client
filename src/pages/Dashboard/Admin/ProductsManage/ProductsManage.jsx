@@ -6,7 +6,7 @@ const ProductsManage = () => {
 
   // handle product delete
   const handleProductDelete = (product) => {
-    fetch(`http://localhost:5000/products/${product._id}`, {
+    fetch(`https://device-market-server.vercel.app/products/${product._id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

@@ -61,7 +61,7 @@ const Product = ({ product }) => {
       };
 
       // send cart product to db
-      fetch("http://localhost:5000/cartproducts", {
+      fetch("https://device-market-server.vercel.app/cartproducts", {
         method: "POST",
         headers: {
           "content-type": "application/json",

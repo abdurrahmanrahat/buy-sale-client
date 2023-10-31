@@ -14,7 +14,7 @@ const getPayHistoryByEmail = () => {
       queryKey: ["payhistory"],
       queryFn: async () => {
         const res = await axios(
-          `http://localhost:5000/payments?email=${user?.email}`
+          `https://device-market-server.vercel.app/payments?email=${user?.email}`
         );
         return res.data;
       },

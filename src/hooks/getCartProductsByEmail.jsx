@@ -14,7 +14,7 @@ const getCartProductsByEmail = () => {
     queryKey: ["productsbyemail"],
     queryFn: async () => {
       const res = await axios(
-        `http://localhost:5000/cartproducts?email=${user?.email}`,
+        `https://device-market-server.vercel.app/cartproducts?email=${user?.email}`,
         {
           headers: {
             authorization: `Bearer ${localStorage.getItem("access-token")}`,

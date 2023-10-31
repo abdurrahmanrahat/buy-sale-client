@@ -9,7 +9,7 @@ const useProducts = () => {
   } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
-      const res = await axios("http://localhost:5000/products");
+      const res = await axios("https://device-market-server.vercel.app/products");
       return res.data;
     },
   });

@@ -24,7 +24,7 @@ const CheckOutForm = ({ price, cartProducts }) => {
   useEffect(() => {
     if (price > 0) {
       axios
-        .post("http://localhost:5000/create-payment-intent", { price })
+        .post("https://device-market-server.vercel.app/create-payment-intent", { price })
         .then((res) => {
           // console.log(res.data.clientSecret);
           setClientSecret(res.data.clientSecret);
@@ -97,7 +97,7 @@ const CheckOutForm = ({ price, cartProducts }) => {
         itemNames: cartProducts.map((item) => item.productName),
       };
       // console.log(payment);
-      axios.post("http://localhost:5000/payments", payment).then((res) => {
+      axios.post("https://device-market-server.vercel.app/payments", payment).then((res) => {
         // console.log(res.data);
         if (res.data.insertResult.insertedId) {
           toast.success("Payment Info saved in DB");
