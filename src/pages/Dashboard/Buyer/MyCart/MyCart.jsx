@@ -25,7 +25,7 @@ const MyCart = () => {
             </tr>
           </thead>
           <tbody>
-            {cartProducts.map((cartProducts, index) => (
+            {cartProducts?.map((cartProduct, index) => (
               <tr key={index} className=" text-white ">
                 <td>{index + 1}</td>
                 <td>
@@ -33,7 +33,7 @@ const MyCart = () => {
                     <div className="avatar">
                       <div className="rounded-full w-16 h-16">
                         <img
-                          src={cartProducts.productImg}
+                          src={cartProduct.productImg}
                           alt="Avatar Tailwind CSS Component"
                         />
                       </div>
@@ -43,17 +43,22 @@ const MyCart = () => {
                 <td>
                   <div className="text-lg">
                     <span className="badge text-lg">
-                      {cartProducts.productName}
+                      {cartProduct.productName}
                     </span>
                   </div>
                 </td>
-                <td className="text-lg">{cartProducts.sellerName}</td>
-                <td className="text-lg">{cartProducts.productCategory}</td>
+                <td className="text-lg">{cartProduct.sellerName}</td>
+                <td className="text-lg">{cartProduct.productCategory}</td>
                 <td className="text-lg text-right">
-                  ${cartProducts?.productPrice}
+                  ${cartProduct?.productPrice}
                 </td>
                 <td>
-                  <Link to="/dashboard/payment">
+                  <Link
+                    to={{
+                      pathname: "/dashboard/payment",
+                      state: cartProduct.productPrice,
+                    }}
+                  >
                     <button className="text-[16px] font-semibold bg-[#EE9322] px-2 py-1 rounded">
                       Payment
                     </button>
