@@ -89,7 +89,7 @@ const AddProduct = () => {
     <div className="my-12">
       <div className="text-center">
         <h2 className="text-3xl lg:text-4xl font-semibold">
-          Welcome! Abdur Rahman
+          Welcome! {user?.displayName}
         </h2>
         <p className="text-[#EE9322] font-bold">Upload your products to sale</p>
       </div>
@@ -114,7 +114,7 @@ const AddProduct = () => {
             {/* product photo */}
             <div className="w-full">
               <label className="block mb-2 text-lg">
-                <span className="">Product Photo*</span>
+                <span className="">Product Photo(280 * 320)*</span>
               </label>
               <input
                 type="file"

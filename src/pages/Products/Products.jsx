@@ -3,7 +3,7 @@ import useProducts from "../../hooks/useProducts";
 import Product from "./Product";
 
 const Products = () => {
-  const [products] = useProducts();
+  const [products, , isLoading, page, setPage, limit] = useProducts();
 
   return (
     <div>
@@ -69,6 +69,35 @@ const Products = () => {
           {products?.map((product) => (
             <Product key={product._id} product={product}></Product>
           ))}
+        </div>
+
+        {/* pagination btn */}
+        <div className="flex items-center justify-center md:justify-end mt-8">
+          <div className="join font-semibold">
+            <button
+              className="join-item btn text-[20px]"
+              onClick={() => {
+                page === 1 ? setPage(1) : setPage(page - 1);
+              }}
+              disabled={page === 1}
+            >
+              «
+            </button>
+            <button className="join-item btn font-semibold text-[17px]">
+              {page}
+            </button>
+            <button
+              className="join-item btn text-[20px]"
+              onClick={() => {
+                page === Math.round(2000 / limit)
+                  ? setPage(Math.round(2000 / limit))
+                  : setPage(page + 1);
+              }}
+              disabled={page === Math.round(27 / limit)}
+            >
+              »
+            </button>
+          </div>
         </div>
       </div>
     </div>
