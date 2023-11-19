@@ -3,7 +3,7 @@ import useProducts from "../../hooks/useProducts";
 import Product from "./Product";
 
 const Products = () => {
-  const [products, , isLoading, page, setPage, limit] = useProducts();
+  const [products, , isLoading, page, setPage, limit, setCategory] = useProducts();
 
   return (
     <div>
@@ -53,7 +53,12 @@ const Products = () => {
           </div>
           <div className="flex items-center justify-center gap-2">
             <span className="text-lg">Category</span>
-            <select className=" px-3 py-3 bg-[#000000a4] rounded-sm focus:outline-none">
+            <select
+              className=" px-3 py-3 bg-[#000000a4] rounded-sm focus:outline-none"
+              onChange={(e) => {
+                setCategory(e.target.value);
+              }}
+            >
               <option disabled selected>
                 default
               </option>

@@ -11,7 +11,7 @@ const getCartProductsByEmail = () => {
     refetch,
     isLoading,
   } = useQuery({
-    queryKey: ["productsbyemail"],
+    queryKey: ["cartProductsbyemail"],
     queryFn: async () => {
       const res = await axios(
         `https://device-market-server.vercel.app/cartproducts?email=${user?.email}`,
