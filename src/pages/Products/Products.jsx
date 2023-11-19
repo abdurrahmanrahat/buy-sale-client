@@ -3,7 +3,17 @@ import useProducts from "../../hooks/useProducts";
 import Product from "./Product";
 
 const Products = () => {
-  const [products, , isLoading, page, setPage, limit, setCategory] = useProducts();
+  const [
+    products,
+    ,
+    isLoading,
+    page,
+    setPage,
+    limit,
+    setCategory,
+    searchRef,
+    handleSearch,
+  ] = useProducts();
 
   return (
     <div>
@@ -31,10 +41,10 @@ const Products = () => {
             <input
               type="text"
               placeholder="Search…"
-              // ref={searchRef}
+              ref={searchRef}
               className="input input-bordered rounded-md bg-black"
             />
-            <button className="btn btn-square border-none bg-black">
+            <button onClick={handleSearch} className="btn btn-square border-none bg-black">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6 "
