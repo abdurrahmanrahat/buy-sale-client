@@ -19,7 +19,7 @@ const useProducts = () => {
   // Update the query key when limit or page changes
   useEffect(() => {
     refetch();
-  }, [limit, page, refetch]);
+  }, [limit, page, refetch, category]);
 
   return [products, refetch, isLoading, page, setPage, limit, setCategory];
 
