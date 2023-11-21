@@ -100,7 +100,9 @@ const AddProduct = () => {
           <div className="md:flex gap-6 justify-between mb-3">
             {/* product name */}
             <div className="w-full">
-              <label className="block mb-2 text-lg">Product Name*</label>
+              <label className="block mb-2 text-lg text-white">
+                Product Name*
+              </label>
               <input
                 type="text"
                 name="productName"
@@ -113,7 +115,7 @@ const AddProduct = () => {
 
             {/* product photo */}
             <div className="w-full">
-              <label className="block mb-2 text-lg">
+              <label className="block mb-2 text-lg text-white">
                 <span className="">Product Photo(280 * 320)*</span>
               </label>
               <input
@@ -127,7 +129,7 @@ const AddProduct = () => {
           <div className="md:flex gap-6 justify-between mb-3">
             {/* product category */}
             <div className="w-full">
-              <label className="block mb-2 text-lg">
+              <label className="block mb-2 text-lg text-white">
                 <span className="">Product Category*</span>
               </label>
               <select
@@ -145,7 +147,9 @@ const AddProduct = () => {
 
             {/* product photo */}
             <div className="w-full">
-              <label className="block mb-2 text-lg">Product Price*</label>
+              <label className="block mb-2 text-lg text-white">
+                Product Price*
+              </label>
               <input
                 type="number"
                 name="productPrice"
@@ -160,7 +164,9 @@ const AddProduct = () => {
           <div className="md:flex gap-6 justify-between mb-3">
             {/* product info one */}
             <div className="w-full">
-              <label className="block mb-2 text-lg">Product Info*</label>
+              <label className="block mb-2 text-lg text-white">
+                Product Info*
+              </label>
               <input
                 type="text"
                 name="productInfoOne"
@@ -172,7 +178,9 @@ const AddProduct = () => {
             </div>
             {/* product info two */}
             <div className="w-full">
-              <label className="block mb-2 text-lg">Product Info*</label>
+              <label className="block mb-2 text-lg text-white">
+                Product Info*
+              </label>
               <input
                 type="text"
                 name="productInfoTwo"
@@ -184,7 +192,9 @@ const AddProduct = () => {
             </div>
             {/* product info three */}
             <div className="w-full">
-              <label className="block mb-2 text-lg">Product Info*</label>
+              <label className="block mb-2 text-lg text-white">
+                Product Info*
+              </label>
               <input
                 type="text"
                 name="productInfoThree"
@@ -199,7 +209,9 @@ const AddProduct = () => {
           <div className="md:flex gap-6 justify-between mb-3">
             {/* product RAM */}
             <div className="w-full">
-              <label className="block mb-2 text-lg">Product RAM*</label>
+              <label className="block mb-2 text-lg text-white">
+                Product RAM*
+              </label>
               <input
                 type="text"
                 name="productRAM"
@@ -212,7 +224,9 @@ const AddProduct = () => {
 
             {/* product Storage */}
             <div className="w-full">
-              <label className="block mb-2 text-lg">Product Storage*</label>
+              <label className="block mb-2 text-lg text-white">
+                Product Storage*
+              </label>
               <input
                 type="text"
                 name="productStorage"
@@ -225,7 +239,9 @@ const AddProduct = () => {
 
             {/* product warranty */}
             <div className="w-full">
-              <label className="block mb-2 text-lg">Product Warranty*</label>
+              <label className="block mb-2 text-lg text-white">
+                Product Warranty*
+              </label>
               <input
                 type="text"
                 name="productWarranty"
@@ -240,7 +256,9 @@ const AddProduct = () => {
           <div className="md:flex gap-6 justify-between mb-3">
             {/* product camera */}
             <div className="w-full">
-              <label className="block mb-2 text-lg">Product Camera*</label>
+              <label className="block mb-2 text-lg text-white">
+                Product Camera*
+              </label>
               <input
                 type="text"
                 name="productCamera"
@@ -252,7 +270,9 @@ const AddProduct = () => {
             </div>
             {/* product port */}
             <div className="w-full">
-              <label className="block mb-2 text-lg">Product Port*</label>
+              <label className="block mb-2 text-lg text-white">
+                Product Port*
+              </label>
               <input
                 type="text"
                 name="productPort"
@@ -267,7 +287,7 @@ const AddProduct = () => {
           <div className="md:flex gap-6 justify-between mb-3">
             {/* product release history */}
             <div className="w-full">
-              <label className="block mb-2 text-lg">
+              <label className="block mb-2 text-lg text-white">
                 Product Release Date*
               </label>
               <input
@@ -281,7 +301,7 @@ const AddProduct = () => {
             </div>
             {/* product upcoming features */}
             <div className="w-full">
-              <label className="block mb-2 text-lg">
+              <label className="block mb-2 text-lg text-white">
                 Product Upcoming Features*
               </label>
               <input
@@ -297,7 +317,9 @@ const AddProduct = () => {
 
           {/* Product description */}
           <div className="">
-            <label className="block mb-2 text-lg">Product Description*</label>
+            <label className="block mb-2 text-lg text-white">
+              Product Description*
+            </label>
             <textarea
               name="productDescription"
               id=""
