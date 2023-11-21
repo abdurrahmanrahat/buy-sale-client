@@ -1,0 +1,5 @@
+.parallax-img {
+    background-image: url("../../../assets/parallax-study.jpg");
+    background-size: cover;
+    background-position: center;
+}
