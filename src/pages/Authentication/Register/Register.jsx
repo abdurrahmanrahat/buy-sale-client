@@ -1,9 +1,8 @@
-import { useForm } from "react-hook-form";
-import usePasswordToggle from "../../../hooks/usePasswordToggle";
-import { Link, useNavigate } from "react-router-dom";
-import GoogleSignIn from "../../../components/GoogleSignIn/GoogleSignIn";
-import toast from "react-hot-toast";
 import { useContext } from "react";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
+import usePasswordToggle from "../../../hooks/usePasswordToggle";
 import { AuthContext } from "../../../provider/AuthProvider";
 
 // token for image hosting

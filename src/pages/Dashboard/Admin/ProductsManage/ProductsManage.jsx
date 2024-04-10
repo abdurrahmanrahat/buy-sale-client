@@ -2,7 +2,7 @@ import toast from "react-hot-toast";
 import useProducts from "../../../../hooks/useProducts";
 
 const ProductsManage = () => {
-  const [products, refetch] = useProducts();
+  const { products, refetch } = useProducts();
 
   // handle product delete
   const handleProductDelete = (product) => {

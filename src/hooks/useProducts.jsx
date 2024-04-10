@@ -20,19 +20,22 @@ const useProducts = () => {
     return res.data;
   };
 
-  const {
-    data: products,
-    refetch,
-    isLoading,
-  } = useQuery(["products", limit, page], fetchProducts);
+  const { data, refetch, isLoading } = useQuery(
+    ["products", limit, page],
+    fetchProducts
+  );
 
   // Update the query key when limit or page changes
   useEffect(() => {
     refetch();
   }, [limit, page, refetch, category, search]);
 
-  return [
+  const products = data?.products;
+  const totalProducts = data?.totalProducts;
+
+  return {
     products,
+    totalProducts,
     refetch,
     isLoading,
     page,
@@ -41,23 +44,7 @@ const useProducts = () => {
     setCategory,
     searchRef,
     handleSearch,
-  ];
-
-  // const {
-  //   data: products,
-  //   refetch,
-  //   isLoading,
-  // } = useQuery({
-  //   queryKey: ["products"],
-  //   queryFn: async () => {
-  //     const res = await axios(
-  //       "https://device-market-server.vercel.app/products"
-  //     );
-  //     return res.data;
-  //   },
-  // });
-
-  // return [products, refetch];
+  };
 };
 
 export default useProducts;

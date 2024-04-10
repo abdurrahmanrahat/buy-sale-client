@@ -2,7 +2,8 @@ import useProducts from "../../../hooks/useProducts";
 import TopProduct from "./TopProduct";
 
 const TopProducts = () => {
-  const [products] = useProducts();
+  const { products } = useProducts();
+
   return (
     <div className="my-24">
       <div className="text-center md:px-28 mb-10">

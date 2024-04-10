@@ -3,17 +3,16 @@ import useProducts from "../../hooks/useProducts";
 import Product from "./Product";
 
 const Products = () => {
-  const [
+  const {
     products,
-    ,
-    isLoading,
+    totalProducts = 71,
     page,
     setPage,
     limit,
     setCategory,
     searchRef,
     handleSearch,
-  ] = useProducts();
+  } = useProducts();
 
   return (
     <div>
@@ -44,7 +43,10 @@ const Products = () => {
               ref={searchRef}
               className="input input-bordered rounded-md bg-black"
             />
-            <button onClick={handleSearch} className="btn btn-square border-none bg-black">
+            <button
+              onClick={handleSearch}
+              className="btn btn-square border-none bg-black"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6 "
@@ -104,11 +106,11 @@ const Products = () => {
             <button
               className="join-item btn text-[20px]"
               onClick={() => {
-                page === Math.round(2000 / limit)
-                  ? setPage(Math.round(2000 / limit))
+                page === Math.round(totalProducts / limit)
+                  ? setPage(Math.round(totalProducts / limit))
                   : setPage(page + 1);
               }}
-              disabled={page === Math.round(27 / limit)}
+              disabled={page === Math.round(totalProducts / limit)}
             >
               »
             </button>
