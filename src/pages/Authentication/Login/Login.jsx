@@ -1,10 +1,10 @@
-import { useForm } from "react-hook-form";
-import usePasswordToggle from "../../../hooks/usePasswordToggle";
-import GoogleSignIn from "../../../components/GoogleSignIn/GoogleSignIn";
-import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext } from "../../../provider/AuthProvider";
+import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import GoogleSignIn from "../../../components/GoogleSignIn/GoogleSignIn";
+import usePasswordToggle from "../../../hooks/usePasswordToggle";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -37,14 +37,17 @@ const Login = () => {
       <div className="w-[400px] rounded-md h-[520px] bg-[#00000052] py-4">
         <div className="text-center">
           <h2 className="text-3xl mt-2 mb-1 font-semibold">Login</h2>
-          <p className="text-gray-400">Sign in to access your account</p>
+          <p className="text-gray-200">Sign in to access your account</p>
         </div>
 
         {/* form start */}
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="m-8">
             <div>
-              <label htmlFor="email" className="block mb-2 text-md">
+              <label
+                htmlFor="email"
+                className="block mb-2 text-md text-gray-200"
+              >
                 Email address
               </label>
               <input
@@ -57,7 +60,10 @@ const Login = () => {
               />
             </div>
             <div className="relative">
-              <label htmlFor="email" className="block mb-2 text-md">
+              <label
+                htmlFor="email"
+                className="block mb-2 text-md text-gray-200"
+              >
                 Password
               </label>
               <input
@@ -93,11 +99,11 @@ const Login = () => {
         {/* Login With Google */}
         <GoogleSignIn></GoogleSignIn>
 
-        <p className="px-6 text-sm text-center text-gray-400">
+        <p className="px-6 text-sm text-center text-gray-200">
           Do not have an account yet?{" "}
           <Link
             to="/register"
-            className="hover:underline hover:text-[15px] duration-300 hover:text-[#EE9322] text-gray-600"
+            className="hover:underline duration-300 hover:text-[#EE9322] text-gray-200"
           >
             Sign up
           </Link>

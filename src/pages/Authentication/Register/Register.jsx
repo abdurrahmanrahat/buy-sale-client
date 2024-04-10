@@ -87,14 +87,17 @@ const Register = () => {
       <div className="w-[400px] rounded-md  bg-[#00000052] py-4 my-6">
         <div className="text-center">
           <h2 className="text-3xl mt-2 mb-1 font-semibold">Register</h2>
-          <p className="text-gray-400">Sign up in our community</p>
+          <p className="text-gray-200">Sign up in our community</p>
         </div>
 
         {/* form start */}
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="m-8 space-y-2">
             <div>
-              <label htmlFor="name" className="block mb-2 text-md">
+              <label
+                htmlFor="name"
+                className="block mb-2 text-md text-gray-200"
+              >
                 Your Name
               </label>
               <input
@@ -110,7 +113,7 @@ const Register = () => {
 
             {/* Photo Field */}
             <div>
-              <label className="block mb-2 text-md">
+              <label className="block mb-2 text-md text-gray-200">
                 <span className="">Your Photo</span>
               </label>
               <input
@@ -122,7 +125,10 @@ const Register = () => {
                 toast.error("Add your photo")}
             </div>
             <div>
-              <label htmlFor="email" className="block mb-2 text-md">
+              <label
+                htmlFor="email"
+                className="block mb-2 text-md text-gray-200"
+              >
                 Email address
               </label>
               <input
@@ -137,7 +143,10 @@ const Register = () => {
                 toast.error("Provide your email")}
             </div>
             <div className="relative">
-              <label htmlFor="email" className="block mb-2 text-md">
+              <label
+                htmlFor="email"
+                className="block mb-2 text-md text-gray-200"
+              >
                 Password
               </label>
               <input
@@ -167,7 +176,10 @@ const Register = () => {
 
             {/* role field */}
             <div className="form-control">
-              <label htmlFor="role" className="block mb-2 text-md">
+              <label
+                htmlFor="role"
+                className="block mb-2 text-md text-gray-200"
+              >
                 Register as
               </label>
               <select
@@ -193,11 +205,11 @@ const Register = () => {
           </div>
         </form>
 
-        <p className="px-6 mt-2 text-sm text-center text-gray-400">
+        <p className="px-6 mt-2 text-sm text-center text-gray-200">
           Already have an account?{" "}
           <Link
             to="/login"
-            className="hover:underline hover:text-[15px] duration-300 hover:text-[#EE9322] text-gray-600"
+            className="hover:underline duration-300 hover:text-[#EE9322] text-gray-200"
           >
             Login
           </Link>

@@ -1,9 +1,9 @@
 import { Link, Outlet } from "react-router-dom";
-import ActiveLink from "../pages/Shared/Navbar/ActiveLink";
-import isSellerUser from "../hooks/isSellerUser";
-import isBuyerUser from "../hooks/isBuyerUser";
-import isAdminUser from "../hooks/isAdminUser";
 import getCartProductsByEmail from "../hooks/getCartProductsByEmail";
+import isAdminUser from "../hooks/isAdminUser";
+import isBuyerUser from "../hooks/isBuyerUser";
+import isSellerUser from "../hooks/isSellerUser";
+import ActiveLink from "../pages/Shared/Navbar/ActiveLink";
 
 const Dashboard = () => {
   const [cartProducts] = getCartProductsByEmail();
@@ -29,10 +29,13 @@ const Dashboard = () => {
         <Outlet></Outlet>
       </div>
       <div className="drawer-side">
-        <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+        <label
+          htmlFor="my-drawer-2"
+          className="drawer-overlay md:hidden"
+        ></label>
         <div className="menu p-4 w-64 min-h-full bg-gray-900">
           {/* Sidebar content here */}
-          <div className="mt-6">
+          <div className="pt-8">
             <Link to="/">
               <h2 className="text-[32px] font-bold">
                 <span className="text-[#EE9322]">Product</span>

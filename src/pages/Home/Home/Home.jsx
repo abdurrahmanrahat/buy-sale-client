@@ -1,3 +1,4 @@
+import Container from "../../../components/ui/Container";
 import BannerSection from "../BannerSection/BannerSection";
 import Blogs from "../Blogs/Blogs";
 import CountParallax from "../CountParallax/CountParallax";
@@ -12,19 +13,21 @@ const Home = () => {
     <div>
       <BannerSection></BannerSection>
 
-      <IntroSection></IntroSection>
+      <Container>
+        <IntroSection></IntroSection>
 
-      <TopProducts></TopProducts>
+        <TopProducts></TopProducts>
 
-      <GallerySection></GallerySection>
+        <GallerySection></GallerySection>
 
-      <TopSellers></TopSellers>
+        <TopSellers></TopSellers>
 
-      <CountParallax></CountParallax>
+        <CountParallax></CountParallax>
 
-      <Blogs></Blogs>
+        <Blogs></Blogs>
 
-      <GetStarted></GetStarted>
+        <GetStarted></GetStarted>
+      </Container>
     </div>
   );
 };
