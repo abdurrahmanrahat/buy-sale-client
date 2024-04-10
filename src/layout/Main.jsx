@@ -1,12 +1,14 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "../pages/Shared/Navbar/Navbar";
 import Footer from "../pages/Shared/Footer/Footer";
+import Navbar from "../pages/Shared/Navbar/Navbar";
 
 const Main = () => {
   return (
-    <div className="max-w-[1280px] max-xl:max-w-[1320px] mx-auto">
+    <div>
       <Navbar></Navbar>
-      <Outlet></Outlet>
+      <div className="max-w-[1280px] max-xl:max-w-[1320px] mx-auto">
+        <Outlet></Outlet>
+      </div>
       <Footer></Footer>
     </div>
   );
